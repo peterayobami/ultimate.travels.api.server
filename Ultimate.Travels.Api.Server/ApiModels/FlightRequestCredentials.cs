@@ -1,3 +1,5 @@
+using Swashbuckle.AspNetCore.Filters;
+
 namespace Ultimate.Travels.Api.Server
 {
     /// <summary>
@@ -78,17 +80,17 @@ namespace Ultimate.Travels.Api.Server
     public class OneWayRouteModel
     {
         /// <summary>
-        /// The location of the traveler
+        /// The location of the traveler in form of the airport's iata code
         /// </summary>
         public string OriginLocation { get; set; }
 
         /// <summary>
-        /// The destination of the traveler
+        /// The destination of the traveler in form of the airport's iata code
         /// </summary>
         public string DestinationLocation { get; set; }
 
         /// <summary>
-        /// The deprature date of the traveler
+        /// The deprature date of the traveler, in yyyy-MM-dd format and must not be in the past
         /// </summary>
         public string DepartureDate { get; set; }
     }
@@ -99,7 +101,7 @@ namespace Ultimate.Travels.Api.Server
     public class RoundTripRouteModel : OneWayRouteModel
     {
         /// <summary>
-        /// The return date of the traveler
+        /// The return date of the traveler, in yyyy-MM-dd format and must not be before the departure date
         /// </summary>
         public string ReturnDate { get; set; }
     }

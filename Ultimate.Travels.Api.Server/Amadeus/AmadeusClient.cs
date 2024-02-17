@@ -107,7 +107,7 @@ namespace Ultimate.Travels.Api.Server
                     responseBody = await response.Content.ReadAsStringAsync();
 
                     // Deserialize the error result
-                    var errorResult = JsonSerializer.Deserialize<TErrorResult>(responseBody);
+                    var errorResult = JsonSerializer.Deserialize<TErrorResult>(responseBody, jsonOptions);
 
                     // Log the error
                     logger.LogError($"Failed to Process Request. Detail: {responseBody}");
@@ -124,10 +124,7 @@ namespace Ultimate.Travels.Api.Server
                 responseBody = await response.Content.ReadAsStringAsync();
                 
                 // Deserialize the result
-                var result = JsonSerializer.Deserialize<TResult>(responseBody, new JsonSerializerOptions
-                {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-                });
+                var result = JsonSerializer.Deserialize<TResult>(responseBody, jsonOptions);
 
                 // Return result
                 return new AmadeusApiResult<TResult, TWarningResult, TErrorResult>

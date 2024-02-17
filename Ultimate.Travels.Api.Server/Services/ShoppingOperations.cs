@@ -145,9 +145,9 @@ namespace Ultimate.Travels.Api.Server
                     // Return error result
                     return new OperationResult
                     {
-                        ErrorTitle = searchResponse.ErrorResult.Errors[0].Title,
-                        StatusCode = searchResponse.ErrorResult.Errors[0].Status,
-                        ErrorMessage = searchResponse.ErrorResult.Errors[0].Detail,
+                        ErrorTitle = searchResponse.ErrorResult != null ? searchResponse.ErrorResult.Errors[0].Title : "SYSTEM ERROR",
+                        StatusCode = searchResponse.ErrorResult != null ? searchResponse.ErrorResult.Errors[0].Status : StatusCodes.Status500InternalServerError,
+                        ErrorMessage = searchResponse.ErrorResult != null ? searchResponse.ErrorResult.Errors[0].Detail : "An unknown error has occurred",
                         ErrorResult = searchResponse.ErrorResult
                     };
                 }
@@ -275,9 +275,9 @@ namespace Ultimate.Travels.Api.Server
                     // Return error result
                     return new OperationResult
                     {
-                        ErrorTitle = searchResponse.ErrorResult.Errors[0].Title,
-                        StatusCode = searchResponse.ErrorResult.Errors[0].Status,
-                        ErrorMessage = searchResponse.ErrorResult.Errors[0].Detail,
+                        ErrorTitle = searchResponse.ErrorResult != null ? searchResponse.ErrorResult.Errors[0].Title : "SYSTEM ERROR",
+                        StatusCode = searchResponse.ErrorResult != null ? searchResponse.ErrorResult.Errors[0].Status : StatusCodes.Status500InternalServerError,
+                        ErrorMessage = searchResponse.ErrorResult != null ? searchResponse.ErrorResult.Errors[0].Detail : "An unknown error has occurred",
                         ErrorResult = searchResponse.ErrorResult
                     };
                 }

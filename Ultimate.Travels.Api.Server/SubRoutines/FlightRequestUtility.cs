@@ -149,7 +149,7 @@ namespace Ultimate.Travels.Api.Server
                 new() {
                     Id = "1",
                     OriginLocationCode = requestCredentials.OneWay.OriginLocation,
-                    DestinationLocationCode = requestCredentials.RoundTrip.DestinationLocation,
+                    DestinationLocationCode = requestCredentials.OneWay.DestinationLocation,
                     DepartureDateTimeRange = new DepartureDateTimeRange
                     {
                         Date = requestCredentials.OneWay.DepartureDate
